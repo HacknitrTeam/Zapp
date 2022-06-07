@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ui1</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      .screenBox {
+        border: 2px solid;
+
+        width: 100%;
+        height: 1000px;
+      }
+      .UI1 {
+        border: 2px solid;
+        width: 33%;
+        height: 750px;
+        display: flex;
+        margin-left: 33%;
+        margin-top: 10%;
+        border-radius: 50px;
+        overflow: hidden;
+      }
+      .box1 {
+        width: 100%;
+        height: 48%;
+      }
+
+      .navBar {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        border-radius: 50px;
+      }
+
+      .keyPad {
+        width: 55%;
+        height: 100px;
+        margin-top: 50px;
+        margin-right: 50px;
+        border-radius: 50px;
+        margin-left: 0px;
+      }
+      .container {
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 13px;
+        margin-top: 3px;
+      }
+
+      .bar1,
+      .bar2,
+      .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+
+      .change .bar2 {
+        opacity: 0;
+      }
+
+      .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+      .menuButton {
+        height: 100%;
+        width: 55px;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+      .calculator {
+        padding: 8px;
+        height: 300px;
+        width: 109%;
+      }
+      .display-box {
+        font-family: "Orbitron", sans-serif;
+        background-color: #dcdbe1;
+        border: solid black 0.5px;
+        color: black;
+        border-radius: 5px;
+        width: 100%;
+        height: 65%;
+      }
+      .button {
+        background-color: rgb(199, 220, 246);
+        border: 2px;
+        border-radius: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 50px;
+        height: 40px;
+      }
+
+      /* Dropdown Button */
+      .dropbtn {
+        background-color: #119cff;
+
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 50px;
+        width: 400px;
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: inherit;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: rgba(21, 0, 139, 0.555);
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdown:hover .dropbtn {
+        background-color: darkcyan;
+      }
+      .dropdown1 {
+        width: 100%;
+        height: 30px;
+        margin-top: 90px;
+        border-radius: 30px;
+      }
+      .dropdown2 {
+        margin-top: 150px;
+      }
+      .display-box {
+        border-color: #a0ceeb;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 350px;
+        height: 69px;
+        font-weight: 200;
+        font-size: 1.2em;
+        border: 1px;
+      }
+      .box {
+        height: 700px;
+        width: 500px;
+        border-radius: 50px;
+        border-color: black;
+        border: 2px solid;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(103, 111, 240, 1) 0%,
+          rgba(16, 92, 228, 1) 0%,
+          rgba(169, 220, 246, 1) 0%,
+          rgba(204, 229, 240, 1) 63%,
+          rgba(142, 214, 236, 0.9755252442773985) 100%
+        );
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        margin-left: 105px;
+        margin-bottom: 150px;
+      }
+      .circle {
+        border-radius: 43% 57% 51% 49% / 50% 47% 53% 50%;
+        background-color: #119cff;
+        width: 700px;
+        height: 659px;
+      }
+      .screenBox {
+        height: 1000px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid;
+        border-color: #232822;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(103, 111, 240, 1) 0%,
+          rgba(107, 132, 230, 1) 0%,
+          rgba(16, 92, 228, 1) 0%,
+          rgba(63, 176, 226, 1) 36%,
+          rgba(142, 214, 236, 0.9755252442773985) 100%
+        );
+      }
+    </style>
+    <script>
+      function clearScreen() {
+        document.getElementById("result").value = "";
+      }
+
+      // This function display values
+      function display(value) {
+        document.getElementById("result").value += value;
+      }
+      // This function evaluates the expression and return result
+      function calculate() {
+        var p = document.getElementById("result").value;
+        var q = eval(p);
+        document.getElementById("result").value = q;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="screenBox">
+      <div class="circle">
+        <div class="box">
+          <div class="navBar">
+            <div class="menuButton">
+              <div class="container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+
+              <script>
+                function myFunction(x) {
+                  x.classList.toggle("change");
+                }
+              </script>
+            </div>
+            <div class="convertingFrom">
+              <div class="dropdown1">
+                <div class="dropdown">
+                  <button class="dropbtn">Converting From</button>
+                  <div class="dropdown-content">
+                    <a href="#">currency 1</a>
+                    <a href="#">currency 2</a>
+                    <a href="#">currency 3</a>
+                  </div>
+                </div>
+              </div>
+              <div class="convertingTo"></div>
+              <div class="dropdown2">
+                <div class="dropdown">
+                  <button class="dropbtn">Converting To</button>
+                  <div class="dropdown-content">
+                    <a href="#">currency 1</a>
+                    <a href="#">currency 2</a>
+                    <a href="#">currency 3</a>
+                  </div>
+                </div>
+              </div>
+              <div class="box2">
+                <div class="keyPad">
+                  <div class="keypadButtons">
+                    <table class="calculator">
+                      <tr>
+                        <td colspan="3">
+                          <input
+                            class="display-box"
+                            type="text"
+                            id="result"
+                            disabled
+                          />
+                        </td>
+
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="C"
+                            onclick="clearScreen()"
+                            style="background-color: #119cff"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="1"
+                            onclick="display('1')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="2"
+                            onclick="display('2')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="3"
+                            onclick="display('3')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="/"
+                            onclick="display('/')"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="4"
+                            onclick="display('4')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="5"
+                            onclick="display('5')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="6"
+                            onclick="display('6')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="-"
+                            onclick="display('-')"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="7"
+                            onclick="display('7')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="8"
+                            onclick="display('8')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="9"
+                            onclick="display('9')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="+"
+                            onclick="display('+')"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="."
+                            onclick="display('.')"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="0"
+                            onclick="display('0')"
+                          />
+                        </td>
+
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="="
+                            onclick="calculate()"
+                            style="background-color: #119cff"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            class="button"
+                            type="button"
+                            value="*"
+                            onclick="display('*')"
+                          />
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
