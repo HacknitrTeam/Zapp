@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ui</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(103, 111, 240, 1) 0%,
+          rgba(107, 132, 230, 1) 0%,
+          rgba(16, 92, 228, 1) 0%,
+          rgba(63, 176, 226, 1) 36%,
+          rgba(142, 214, 236, 0.9755252442773985) 100%
+        );
+        background: rgb(107, 213, 246);
+        background: linear-gradient(45deg, #90cdfa 6%, #a0d7fe 89%);
+      }
+
+      .circle {
+        border-radius: 43% 57% 51% 49% / 50% 47% 53% 50%;
+        background-color: #0f9cfb;
+        width: 532px;
+        height: 550px;
+        position: absolute;
+        top: 100px;
+        left: 300px;
+      }
+
+      .box {
+        height: 90%;
+        width: max(23%, 350px);
+        /* background: rgba( 255, 255, 255, 0.45 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 9.5px );
+            -webkit-backdrop-filter: blur( 9.5px ); */
+        border-radius: 40px;
+        background: whitesmoke;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      }
+
+      .navbar {
+        height: 10%;
+        /* width: 100%;
+            height: 50px;
+            display: flex;
+            border-radius: 50px; */
+      }
+
+      .keypad_de {
+        height: 60%;
+      }
+
+      .menubutton {
+        height: 100%;
+        width: 25%;
+      }
+
+      .containbar {
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 13px;
+        margin-top: 3px;
+      }
+
+      .bar1,
+      .bar2,
+      .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: rgb(21, 13, 13);
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+
+      .change .bar2 {
+        opacity: 0;
+      }
+
+      .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+
+      .calculator {
+        height: 60vh;
+        width: 100%;
+      }
+
+      .button {
+        background-color: rgb(199, 220, 246);
+        border: 2px;
+        border-radius: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 3.5vw;
+        height: 5vh;
+        margin-left: 1vw;
+      }
+
+      .display-box {
+        border-color: inherit;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 80%;
+        height: 14vh;
+        font-weight: 800;
+        margin-left: 2vw;
+        font-size: 1.5em;
+        border: 1px;
+        margin-bottom: 5vh;
+        margin-top: 2vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="navbar de">
+          <div class="menubutton">
+            <div class="containbar" onclick="myFunction(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+            <script>
+              function myFunction(x) {
+                x.classList.toggle("change");
+              }
+            </script>
+          </div>
+        </div>
+        <div class="inputSection de"></div>
+        <tr>
+          <td colspan="4">
+            <input class="display-box" type="text" id="result" disabled />
+          </td>
+        </tr>
+        <div class="keypad_de">
+          <div class="keypad-buttons">
+            <table class="calculator">
+              <tr>
+                <td colspan="4">
+                  <input
+                    class="button"
+                    type="button"
+                    value="C"
+                    onclick="clearScreen()"
+                    style="background-color: rgba(166, 239, 255, 0.678)"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="1"
+                    onclick="display('1')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="2"
+                    onclick="display('2')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="3"
+                    onclick="display('3')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="/"
+                    onclick="display('/')"
+                    style="background-color: rgba(166, 239, 255, 0.678)"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="4"
+                    onclick="display('4')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="5"
+                    onclick="display('5')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="6"
+                    onclick="display('6')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="-"
+                    onclick="display('-')"
+                    style="background-color: rgba(166, 239, 255, 0.678)"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="7"
+                    onclick="display('7')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="8"
+                    onclick="display('8')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="9"
+                    onclick="display('9')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="+"
+                    onclick="display('+')"
+                    style="background-color: rgba(166, 239, 255, 0.678)"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="."
+                    onclick="display('.')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="0"
+                    onclick="display('0')"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="="
+                    onclick="calculate()"
+                    style="background-color: rgba(166, 239, 255, 0.678)"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="button"
+                    type="button"
+                    value="*"
+                    onclick="display('*')"
+                    style="background-color: rgba(166, 239, 255, 0.678)"
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function clearScreen() {
+      document.getElementById("result").value = "";
+    }
+
+    function display(value) {
+      document.getElementById("result").value += value;
+    }
+
+    function calculate() {
+      var p = document.getElementById("result").value;
+      var q = eval(p);
+      document.getElementById("result").value = q;
+    }
+  </script>
+</html>
